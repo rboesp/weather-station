@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --sidenav: 15%;
+    --saved-img: 12px;
+    --pic: 225px;
+    --bg-graph: #303030;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #303030;
+}
+.moop {
+    position: sticky;
+    top: 0;
+    background-color: #303030;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    /* background-color: grey; */
+}
+.sidenav {
+    position: fixed;
+    width: var(--sidenav);
+    height: 100%;
+    background-color: #303030;
+}
+.main {
+    width: 100%;
+    height: 100%;
+    margin-left: var(--sidenav);
+}
+.wrapper {
+    display: flex;
+}
+.city {
+    font-size: 0.5em;
+}
+.city:hover {
+    color: black;
+    background-color: whitesmoke;
+}
+.mainer {
+    background-color: #303030;
+    border: 1px solid black;
+}
+.saved-city-img {
+    height: var(--saved-img);
+    width: var(--saved-img);
+}
+.chart {
+    width: fit-content;
+    /* padding: 5px; */
+    border: 1px solid black;
+    /* border-radius: 15%; */
+    margin: 50px;
+    position: relative;
+    width: 100%;
+    /* z-index: 10000; */
+    padding: 3%;
+    background-color: var(--bg-graph);
+}
+#tester {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    /* border: 1px dashed red; */
+    /* border-radius: 15%; */
+    width: 100%;
+    height: var(--pic);
+    background-color: var(--bg-graph);
+    /* z-index: 100000; */
+}
