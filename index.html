@@ -18,6 +18,9 @@
     <nav class="moop navbar navbar-light">
         <img src="https://img.icons8.com/color/48/000000/chance-of-storm.png">
         <h1 class="text-white">WEATHER</h1>
+        <div class="spinner spinner-border text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
         <form class="form-inline">
           <input class="maap form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -25,22 +28,11 @@
       </nav>
     <div class="wrapper">
         <div class="sidenav  text-center border border-dark">
-            <!-- <p class="saved border text-light border-secondary rounded m-1">
-                Saved
-            </p> -->
             <div class="city-list">
-                <!-- <div class="border justify-content-start d-flex text-left p-1 text-light border-secondary rounded m-1">
-                    <p class="city m-auto">Boise, ID <span>48&deg;</span> </p>
-                    <img class="saved-city-img" src="./images/sunny.png" alt="">
-                </div> -->
             </div>
         </div>
     <div class="main container ">
         <div class="mainer jumbotron mt-4 d-flex text-white">
-           
-            <!-- <h1 id="lat">Lat: <span></span></h1>
-            <h1 id="long">Long: <span></span></h1> -->
-            
         </div>
         <div class='chart text-center m-auto rounded'>
             <div id="tester"></div>
@@ -50,30 +42,6 @@
                 <br>
             </p>
         </h1>
-        <!-- <div class="row border p-2 text-center">
-            <div class="col m-2 p-2">5-day forecast</div>
-            <div class="col m-2 p-2 border text-center rounded">1</div>
-            <div class="col m-2 p-2 border text-center rounded">2</div>
-            <div class="col m-2 p-2 border text-center rounded">3</div>
-            <div class="col m-2 p-2 border text-center rounded">4</div>
-            <div class="col m-2 p-2 border text-center rounded">5</div>
-        </div>
-        <div class="row border p-2 text-center">
-            <div class="col m-2 p-2">5-day forecast</div>
-            <div class="col m-2 p-2 border text-center rounded">1</div>
-            <div class="col m-2 p-2 border text-center rounded">2</div>
-            <div class="col m-2 p-2 border text-center rounded">3</div>
-            <div class="col m-2 p-2 border text-center rounded">4</div>
-            <div class="col m-2 p-2 border text-center rounded">5</div>
-        </div>
-        <div class="row border p-2 text-center">
-            <div class="col m-2 p-2">5-day forecast</div>
-            <div class="col m-2 p-2 border text-center rounded">1</div>
-            <div class="col m-2 p-2 border text-center rounded">2</div>
-            <div class="col m-2 p-2 border text-center rounded">3</div>
-            <div class="col m-2 p-2 border text-center rounded">4</div>
-            <div class="col m-2 p-2 border text-center rounded">5</div>
-        </div> -->
 </div>
     <div class="footer bg-light border text-center">
         Made by Robert Boespflug - 2020

@@ -232,11 +232,14 @@ function makeCity(
 
 function fetch_weather(url) {
     return new Promise(resolve => {
+        let spinner = $(".spinner")
+        spinner.show()
         fetch(url)
             .then(res => {
                 return res.json()
             })
             .then(res => {
+                spinner.hide()
                 resolve(res)
             })
     })

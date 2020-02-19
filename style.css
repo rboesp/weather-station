@@ -15,6 +15,9 @@ body {
     width: 100%;
     background-color: #303030;
 }
+.spinner {
+    display: none;
+}
 .moop {
     position: sticky;
     top: 0;
