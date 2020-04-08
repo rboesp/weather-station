@@ -66,26 +66,24 @@ let global_saved = new City_List()
 //events
 
 //hitting green search btn
-$(document).on("submit", e => {
+$(document).on("submit", (e) => {
     e.preventDefault()
     let inp = $(".maap").val()
-    let split = inp
-        .trim()
-        .toLowerCase()
-        .split(",")
+    let split = inp.trim().toLowerCase().split(",")
     // .map(i => i.trim())
 
     //using method: city, province
     let params = {
         units: "imperial",
-        q: `${split[0]},${split[1]}`
+        q: `${split[0]},${split[1]}`,
     }
+
     //save and fetch
     fetch_and_render(params)
 })
 
 //clicking side saved cities
-$(".city-list").on("click", e => {
+$(".city-list").on("click", (e) => {
     let city_name = e.target.closest("div").getAttribute("data-name")
     let city_prov = e.target.closest("div").getAttribute("data-prov")
     console.log(city_name, city_prov)
@@ -93,11 +91,11 @@ $(".city-list").on("click", e => {
     //request weather from these params
     let params = {
         units: "imperial",
-        q: `${city_name}, ${city_prov}`
+        q: `${city_name}, ${city_prov}`,
     }
 
     let saved_cities = getSavedCities(global_saved.get())
-    saved_cities.forEach(city => {
+    saved_cities.forEach((city) => {
         if (city.name === city_name) {
             fetch_and_render(params)
         }
@@ -108,7 +106,7 @@ $(".city-list").on("click", e => {
 function getCoords(geo) {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(
-            position => {
+            (position) => {
                 console.log("Runs when location got!!!")
                 geo.lat = position.coords.latitude
                 geo.long = position.coords.longitude
@@ -117,7 +115,7 @@ function getCoords(geo) {
                 $("#long").text(geo.long)
                 resolve(geo)
             },
-            error => {
+            (error) => {
                 console.log(
                     "Here I would make city and render search for city!"
                 )
@@ -132,9 +130,9 @@ function getCoords(geo) {
 function renderSavedCities(saved_cities) {
     $(".city-list").empty()
     //for every city
-    saved_cities.forEach(city => {
+    saved_cities.forEach((city) => {
         let div = $(
-            `<div  data-prov=${city.prov} data-name=${city.name} class='border justify-content-start d-flex text-left p-1 text-light border-secondary rounded m-1'></div>`
+            `<div  data-prov=${city.prov} data-name=${city.name} class='city-container  justify-content-start d-flex text-left p-1 text-light  rounded m-1'></div>`
         )
         let p = $(
             `<p class="city m-auto">${city.name}, ${city.prov} <span>${city.temp}&deg;</span> </p>`
@@ -158,7 +156,7 @@ function renderCurrentCity(current_city) {
     let img = $(`<img src='${current_city.img}'>`)
     img.css({
         height: "50px",
-        width: "50px"
+        width: "50px",
     })
     var today = new Date()
     var dd = String(today.getDate()).padStart(2, "0")
@@ -187,7 +185,7 @@ function getForecast() {
         getRandomInt(100),
         getRandomInt(100),
         getRandomInt(100),
-        getRandomInt(100)
+        getRandomInt(100),
     ]
 }
 /****
@@ -231,14 +229,14 @@ function makeCity(
 }
 
 function fetch_weather(url) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         let spinner = $(".spinner")
         spinner.show()
         fetch(url)
-            .then(res => {
+            .then((res) => {
                 return res.json()
             })
-            .then(res => {
+            .then((res) => {
                 spinner.hide()
                 resolve(res)
             })
@@ -305,7 +303,7 @@ async function fetch_and_render(params) {
 }
 
 //entry point
-$(function() {
+$(function () {
     console.log("ready!")
 
     //get coords then render
@@ -322,7 +320,7 @@ async function start() {
     let params = {
         units: "imperial",
         lat: response.lat,
-        lon: response.long
+        lon: response.long,
     }
 
     fetch_and_render(params)
