@@ -37,10 +37,20 @@ class URL {
 
 //
 class City {
-    constructor(name = "", prov = "", temp = "", img = "", forecast = []) {
+    constructor(
+        name = "",
+        prov = "",
+        temp = "",
+        pressure = "",
+        humidity = "",
+        img = "",
+        forecast = []
+    ) {
         this.name = name
         this.prov = prov
         this.temp = temp
+        this.pressure = pressure
+        this.humidity = humidity
         this.img = img
         this.forecast = forecast
     }
@@ -144,7 +154,7 @@ function renderSavedCities(saved_cities) {
 }
 
 function renderCurrentCity(current_city) {
-    $(".jumbotron").empty()
+    $(".bosow").empty()
     let name = $(
         `<h1 class=current-city> ${current_city.name}, ${current_city.prov}</h1>`
     )
@@ -165,7 +175,15 @@ function renderCurrentCity(current_city) {
 
     today = mm + "/" + dd + "/" + yyyy + " - "
     let date = $(`<h1>${today}</h1>`)
-    $(".jumbotron").append(name, img)
+    name.append(img)
+    $(".bosow").append(name)
+
+    //jumbotron
+    // $(".jumbotron").empty()
+    $(".current-city-pressure").text(
+        ` Pressure: ${Math.round(current_city.pressure)} mbar`
+    )
+    $(".current-city-humidity").text(`Humidity: ${current_city.humidity} %`)
 }
 
 /****
@@ -221,10 +239,12 @@ function makeCity(
     name,
     prov,
     temp = getRandomInt(100),
+    pressure = getRandomInt(100),
+    humidity = getRandomInt(100),
     img = "./images/search_icon.png",
     forecast = getForecast()
 ) {
-    let city = new City(name, prov, temp, img, forecast)
+    let city = new City(name, prov, temp, pressure, humidity, img, forecast)
     return city
 }
 
@@ -291,6 +311,8 @@ async function fetch_and_render(params) {
         weather_res["name"],
         weather_res["sys"]["country"],
         weather_res["main"]["temp"],
+        weather_res["main"]["pressure"],
+        weather_res["main"]["humidity"],
         iconurl,
         [forecast_keys, forecast_values]
     )
@@ -305,7 +327,7 @@ async function fetch_and_render(params) {
 //entry point
 $(function () {
     console.log("ready!")
-
+    $(".date-time").text(new Date().toDateString())
     //get coords then render
     start()
 })

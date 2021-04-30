@@ -24,15 +24,16 @@
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     </head>
     <body>
-        <nav class="moop navbar navbar-light">
-            <img
+        <nav class="moop navbar d-flex navbar-light">
+            <p class="bosow"></p>
+            <!-- <img
                 src="https://img.icons8.com/color/48/000000/chance-of-storm.png"
-            />
-            <h1 class="title">WEATHER</h1>
+            /> -->
+            <h1 class="date-time my-2 my-sm-0"></h1>
             <div class="spinner spinner-border text-light" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
-            <form class="form-inline">
+            <form class="form-inline mt-100">
                 <input
                     class="maap form-control mr-sm-2"
                     type="search"
@@ -55,7 +56,10 @@
             <div class="city-list"></div>
         </div> -->
         <div class="main container">
-            <div class="mainer jumbotron mt-4 d-flex text-white"></div>
+            <div class="mainer jumbotron mt-4 d-flex text-white">
+                <h2 class="current-city-pressure"></h2>
+                <h2 class="current-city-humidity"></h2>
+            </div>
             <div class="chart text-center m-auto rounded">
                 <div id="tester"></div>
             </div>
@@ -66,7 +70,7 @@
             </h1>
         </div>
         <div class="footer bg-light border text-center">
-            Made by Robert Boespflug - 2020
+            Made by Robert Boespflug
         </div>
         <script src="/reload/reload.js"></script>
         <script src="graph.js"></script>

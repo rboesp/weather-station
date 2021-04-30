@@ -16,9 +16,11 @@ body {
     background-color: #303030;
     font-family: "Trirong", serif;
 }
-.title {
+.date-time {
     float: left;
     color: #303030;
+    /* border: 1px dashed red; */
+    margin: auto;
 }
 .spinner {
     display: none;
@@ -27,7 +29,9 @@ body {
     /* position: sticky; */
     top: 0;
     background-color: whitesmoke;
-    /* justify-content: space-around; */
+    justify-content: flex-start;
+    justify-items: baseline;
+    margin: auto;
 }
 .moop > img,
 h1 {
@@ -82,9 +86,13 @@ h1 {
     color: black;
     background-color: whitesmoke;
 } */
+.current-city {
+    /* border: 1px dashed red; */
+}
 .mainer {
     background-color: #303030;
     border: 1px solid black;
+    flex-direction: column;
 }
 .saved-city-img {
     text-align: center;
